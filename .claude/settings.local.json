@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node scripts/generate-icons.mjs)",
+      "Bash(npm run *)",
+      "Bash(ping -n 4 127.0.0.1)"
+    ]
+  }
+}

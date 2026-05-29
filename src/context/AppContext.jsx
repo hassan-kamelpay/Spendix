@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react'
-import { SEED_DATA, CURRENCIES } from '../constants'
+import { CURRENCIES } from '../constants'
 import { uid } from '../utils'
 import * as sheetsApi from '../services/sheetsApi'
 import { useGoogleAuth } from '../hooks/useGoogleAuth'
@@ -37,8 +37,8 @@ const DEFAULT_PREFS = {
 }
 
 const DEFAULT_BUDGETS = {
-  food: 400, transport: 150, bills: 200, shopping: 300,
-  entertainment: 100, health: 200, travel: 500, education: 200, other: 100,
+  food: 0, transport: 0, bills: 0, shopping: 0,
+  entertainment: 0, health: 0, travel: 0, education: 0, other: 0,
 }
 
 // ── Context ───────────────────────────────────────────────────────────────────
@@ -47,8 +47,8 @@ const Ctx = createContext(null)
 export function AppProvider({ children }) {
   // ── State ──────────────────────────────────────────────────────────────────
   const [expenses, setExpenses] = useState(() => {
-    try { const s = localStorage.getItem('sx_exp'); return s ? JSON.parse(s) : SEED_DATA }
-    catch { return SEED_DATA }
+    try { const s = localStorage.getItem('sx_exp'); return s ? JSON.parse(s) : [] }
+    catch { return [] }
   })
 
   const [budgets, setBudgets] = useState(() => {

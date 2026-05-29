@@ -3,7 +3,10 @@
     "allow": [
       "Bash(node scripts/generate-icons.mjs)",
       "Bash(npm run *)",
-      "Bash(ping -n 4 127.0.0.1)"
+      "Bash(ping -n 4 127.0.0.1)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
